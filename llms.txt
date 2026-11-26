@@ -1,0 +1,37 @@
+# Detail Pros Orlando Inc.
+> Mobile auto, boat, RV and motorcycle detailing in the Orlando, Florida area. The crew comes to your home or office, seven days a week. In business since 2004 (stated on their own site). Founder and President: Thomas Kerney.
+
+## Contact
+- Phone / text: 407-456-0031
+- Email: detailprosorlandoinc@gmail.com
+- Hours: 8 AM–8 PM daily per their Google listing; appointment required. No online booking: call, text or email.
+- Service area: Orange, Seminole, Lake and Osceola counties, FL (Orlando, Lake Nona, Winter Park, Windermere, Celebration, Kissimmee, Saint Cloud, Altamonte Springs, Lake Mary, Sanford). Mobile service-area business, no storefront.
+- Languages: English, Spanish
+- Payments: credit cards, debit cards, NFC mobile payments
+- Facebook: https://www.facebook.com/p/Detail-Pros-Orlando-Inc-100091688833386/
+
+## Services
+- Auto detailing: high-speed buffing, polishing and waxing, light scratch removal, three-step paint process, headlight restoration, steam-cleaned interiors
+- Boat detailing: buffing, polishing, waxing, engine cleaning, vinyl cleaning
+- RV detailing: motorhomes, 5th wheels, travel trailers, mobile homes
+- Motorcycle detailing: Harley-Davidson, Victory, sport bikes, custom bikes
+
+## Prices (starting at, from their current published menu; vary by size and condition)
+- Premium Interior Detailing: from $139.95
+- Signature Detail: $169.95 coupes & light trucks / $179.95 sedans / $189.95 2-door trucks & small SUVs / $219.95 full-size SUVs & large trucks
+- Ultimate Detail: $199.95 / $219.95 / $239.95 / $279.95 (same size order)
+- Premium Wax: $99.95 (ceramic wax upgrade +$40). Interior Detail: $99.95
+- Add-ons: Rain-X treatment $16; Child stroller cleaning $25; Pet hair removal $30; Interior sanitizing $30; Ceramic wax $30; Headlight restoration $69
+- Boats, RVs and motorcycles: quoted by phone
+
+## Reviews
+- Google: 5.0 from 2 reviews (Charlotte Weinreich, Amanda).
+
+## Pages
+- Home: https://rgwebd.github.io/detailprosorlando/
+- Services: https://rgwebd.github.io/detailprosorlando/services.html
+- Pricing: https://rgwebd.github.io/detailprosorlando/pricing.html
+- Gallery: https://rgwebd.github.io/detailprosorlando/gallery.html
+- Reviews: https://rgwebd.github.io/detailprosorlando/reviews.html
+- About: https://rgwebd.github.io/detailprosorlando/about.html
+- Contact & FAQ: https://rgwebd.github.io/detailprosorlando/contact.html
