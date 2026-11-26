@@ -34,7 +34,7 @@ $$('[data-open]').forEach(el=>{el.classList.add(isOpen?'open':'closed');const t=
 $$('.hrs li').forEach(li=>{if(li.dataset.d===n.wd)li.classList.add('td')});
 /* odometers */
 const odo=el=>{const v=el.dataset.v;el.innerHTML='';[...v].forEach(ch=>{if(/\d/.test(ch)){const c=d.createElement('span');c.className='col';c.setAttribute('aria-hidden','true');for(let k=0;k<=9;k++){const s=d.createElement('span');s.textContent=k;c.append(s)}c.dataset.t=ch;el.append(c)}else{const s=d.createElement('span');s.className='fx';s.setAttribute('aria-hidden','true');s.textContent=ch;el.append(s)}});const sr=d.createElement('span');sr.className='sr';sr.textContent=v;el.append(sr)};
-const roll=el=>$$('.col',el).forEach((c,i)=>{c.style.transitionDelay=(i*.08)+'s';c.style.transform=`translateY(-${c.dataset.t}em)`});
+const roll=el=>$$('.col',el).forEach((c,i)=>{const m=d.createElement('span');m.style.cssText='position:absolute;visibility:hidden;white-space:pre';m.textContent=c.dataset.t;el.append(m);c.style.width=m.getBoundingClientRect().width+'px';m.remove();c.style.transitionDelay=(i*.08)+'s';c.style.transform=`translateY(-${c.dataset.t}em)`});
 const oio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){roll(e.target);oio.unobserve(e.target)}}),{threshold:.3});
 $$('.odo').forEach(el=>{odo(el);if(RM)roll(el);else oio.observe(el)});
 window.__odo={odo,roll};
@@ -44,7 +44,7 @@ if(!RM&&matchMedia('(hover:hover)').matches)$$('.pk').forEach(c=>{c.addEventList
 if(!RM&&matchMedia('(hover:hover)').matches)$$('.btn.mag').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.25}px)`});b.addEventListener('pointerleave',()=>b.style.transform='')});
 /* water beads canvas */
 $$('canvas.beads').forEach(cv=>{const ctx=cv.getContext('2d');let W,H,B=[],vis=true,raf;const dense=+(cv.dataset.n||70);
- const mk=()=>{const r=Math.random()<.12?6+Math.random()*7:1.6+Math.random()*4.2;return{x:Math.random()*W,y:Math.random()*H,r,vy:r>6&&Math.random()<.6?.15+Math.random()*.5:0,tr:[]}};
+ const mk=()=>{const r=Math.random()<.2?13+Math.random()*13:4+Math.random()*8;return{x:Math.random()*W,y:Math.random()*H,r,vy:r>6&&Math.random()<.6?.15+Math.random()*.5:0,tr:[]}};
  const size=()=>{const dpr=Math.min(devicePixelRatio||1,2),rc=cv.getBoundingClientRect();W=rc.width;H=rc.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);const want=Math.round(dense*(W*H)/(1440*900));B=Array.from({length:Math.max(18,Math.min(want,160))},mk)};
  const bead=b=>{const {x,y,r}=b;ctx.save();ctx.beginPath();ctx.ellipse(x,y,r,r*.92,0,0,7);const g=ctx.createRadialGradient(x-r*.3,y-r*.35,r*.1,x,y,r);g.addColorStop(0,'rgba(255,255,255,.55)');g.addColorStop(.35,'rgba(170,230,255,.10)');g.addColorStop(.85,'rgba(0,10,20,.22)');g.addColorStop(1,'rgba(160,225,255,.55)');ctx.fillStyle=g;ctx.fill();
   ctx.beginPath();ctx.ellipse(x-r*.32,y-r*.38,r*.28,r*.18,-.6,0,7);ctx.fillStyle='rgba(255,255,255,.9)';ctx.fill();

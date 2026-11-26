@@ -33,7 +33,18 @@ for k,(c,bl) in P.items():
     W,H=im.size; im=im.crop((round(c[0]*W),round(c[1]*H),round(c[2]*W),round(c[3]*H)))
     save(im,k)
 # their van (already a cut-out PNG on their old site)
-van=Image.open(SRC/'photos/w32.png').convert('RGBA'); van=van.crop(van.getbbox())
+from PIL import ImageChops
+van=Image.open(SRC/'photos/w32.png').convert('RGBA'); vp=van.load()
+# paint out the photographer's shadow on the rear quarter panel (cream fill, keeps dark seams/badges)
+m=Image.new('L',van.size,0);mp=m.load();keep=Image.new('L',van.size,0);kp=keep.load()
+for y in range(255,348):
+    for x in range(855,978):
+        r,g,b,a=vp[x,y]; L=(r+g+b)/3
+        if a>200 and b>=r-12 and 100<L<238: mp[x,y]=255
+        if a>200 and L>=95: kp[x,y]=255
+m=ImageChops.multiply(m.filter(ImageFilter.MaxFilter(7)),keep).filter(ImageFilter.GaussianBlur(1.2))
+al=van.split()[3]; van=Image.composite(Image.new('RGBA',van.size,(247,225,192,255)),van,m); van.putalpha(al)
+van=van.crop(van.getbbox())
 van.save(A/'img'/'van-1000.webp',quality=86,method=6); van.resize((600,round(van.height*600/van.width)),Image.LANCZOS).save(A/'img'/'van-600.webp',quality=86,method=6)
 # ---- logo: soft-key the black background (for dark backgrounds only) ----
 lg=Image.open(SRC/'logo_fb.jpg').convert('RGB'); W,H=lg.size

@@ -197,7 +197,7 @@ def home():
     hs=[('47%','40%','Mirror gloss','That’s the neighborhood reflected in the doors.'),
         ('76%','42%','Glass & trim','Windows streak-free, trim conditioned.'),
         ('50%','72%','Running boards','Steps, rockers and jambs wiped down too.'),
-        ('88%','84%','Tires & wheels','Wheels cleaned, tires dressed.')]
+        ('83%','79%','Tires & wheels','Wheels cleaned, tires dressed.')]
     pins=''.join(f'<div class="hs" style="--x:{x};--y:{y}"><button type="button" aria-expanded="false" aria-label="{t}">+</button><span class="lbl" role="tooltip"><b>{t}</b>{d}</span></div>' for x,y,t,d in hs)
     ride_imgs={'auto':'w31','boat':'w08','rv':'w23','moto':'w06'}
     tabs=''.join(f'<button role="tab" id="t-{s[0]}" aria-controls="p-{s[0]}" aria-selected="false" tabindex="-1">{ {"auto":"Cars & trucks","boat":"Boats","rv":"RVs","moto":"Motorcycles"}[s[0]]}</button>' for s in SVCS)
@@ -211,7 +211,7 @@ def home():
 <article class="pk" data-r style="--d:.2s"><h3>Ultimate Detail</h3><p class="mu">Clay bar decontamination plus every inside-and-out step.</p><div class="pr"><small>Starting at</small><sup>$</sup>199.95</div><ul><li>pH-balanced hand wash</li><li>Clay bar & paint decontamination</li><li>Leather cleaned & conditioned</li><li>Rims & tires dressed</li></ul><a class="btn gh" href="pricing.html#ultimate"><span>What’s included</span>{IC["arrow"]}</a></article></div>'''
     rv=[rv_slide(n,t,a,GSRC) for n,a,t in GREV]+[rv_slide(n,t,'',OSRC) for n,t in OREV[:3]]
     body=f'''<div id="foam" aria-hidden="true"><div class="fm"></div><div class="fl"><img src="assets/brand/logo-360.webp" width="360" height="360" alt=""></div><div class="blade"></div></div>
-{WAVE}<section class="hero"><div class="hero-ph"><div class="fit">{pic('w19',eager=True,sizes='(max-width:760px) 100vw, 66vw')}{pins}</div></div><canvas class="beads" aria-hidden="true"></canvas>
+{WAVE}<section class="hero"><div class="hero-ph"><div class="fit">{pic('w19',eager=True,sizes='(max-width:760px) 100vw, 66vw')}<canvas class="beads" data-n="42" aria-hidden="true"></canvas></div><div class="fit pinsl">{pins}</div></div>
 <div class="hero-cp"><div><p class="eb">Mobile detailing · Orlando, FL · Since 2004</p>
 <h1><span class="sheen">Showroom shine</span><span class="scr">in your driveway</span><span class="sheen">Orlando.</span></h1>
 <p class="lead">Cars, trucks, boats, RVs and motorcycles, hand-detailed at your home or office, seven days a week.</p>
@@ -222,9 +222,9 @@ def home():
 <section class="sec"><div class="hex" aria-hidden="true"></div><div class="wrap"><div class="ttl"><div><p class="eb">Pick your ride</p><h2 class="split-t">Four ways to shine.</h2></div><p>One mobile crew for everything in the driveway, from the daily driver to the boat and the motorhome.</p></div>
 <div class="ride"><div class="ride-stage" data-r>{stage}</div><div><div class="ride-tabs" role="tablist" aria-label="Vehicle type"><span class="ride-ind" aria-hidden="true"></span>{tabs}</div>{panels}</div></div></div></section>
 
-<section class="vanb"><div class="wrap"><div><p class="eb">We come to you</p><h2 class="split-t">Home, office or marina-side driveway.</h2><p class="lead">Book a time, keep your day. The Detail Pros van pulls up and the work happens right where your vehicle is parked.</p>
+<section class="vanb"><div class="wrap"><div><p class="eb">We come to you</p><h2 class="split-t">Your driveway. Your schedule.</h2><p class="lead">Book a time, keep your day. The Detail Pros van pulls up and the work happens right where your vehicle is parked.</p>
 <div class="cnty"><span><b>Orange</b> County</span><span><b>Seminole</b> County</span><span><b>Lake</b> County</span><span><b>Osceola</b> County</span></div></div>
-<div class="stats" style="grid-template-columns:1fr 1fr"><div class="stat" data-r><div class="odo" data-v="2004"></div><p>Detailing Florida vehicles since 2004</p><small>From their site</small></div><div class="stat" data-r style="--d:.1s"><div class="odo" data-v="7"></div><p>Days a week, by appointment</p></div><div class="stat" data-r style="--d:.2s"><div class="odo" data-v="4"></div><p>Vehicle types: auto, boat, RV & motorcycle</p></div><div class="stat" data-r style="--d:.3s"><div class="odo" data-v="$16"></div><p>Add-ons start at $16 (Rain-X)</p></div></div></div>
+<div class="stats" style="grid-template-columns:1fr 1fr"><div class="stat" data-r><div class="odo" data-v="2004"></div><p>Detailing Florida vehicles since 2004</p><small>From their site</small></div><div class="stat" data-r style="--d:.1s"><div class="odo" data-v="7"></div><p>Days a week, by appointment</p></div><div class="stat" data-r style="--d:.2s"><div class="odo" data-v="4"></div><p>Vehicle types: auto, boat, RV & motorcycle</p></div><div class="stat" data-r style="--d:.3s"><div class="bigv">$16</div><p>Add-ons start at $16 (Rain-X)</p></div></div></div>
 <div class="vroad" aria-hidden="true"><div class="van"><div class="spray"></div><img src="assets/img/van-1000.webp" width="1000" height="400" alt="" loading="lazy"></div></div></section>
 
 <section class="sec"><div class="wrap pol"><div><p class="eb">Try it</p><h2 class="split-t">Polish it yourself.</h2><p class="lead">Drag across the photo to wipe away the haze and see the gloss underneath. It’s a finished Detail Pros job, so the shine is real.</p>
@@ -237,7 +237,7 @@ def home():
 <section class="sec" style="padding-top:0"><div class="wrap"><div class="ttl"><div><p class="eb">What customers say</p><h2 class="split-t">Honest work, made right.</h2></div><p><a class="lk" href="reviews.html">Read every review</a></p></div>{reviews_carousel(rv)}</div></section>
 
 <section class="sec" style="padding-top:0"><div class="wrap"><div class="tz">
-<a class="tzc" href="gallery.html" data-r>{pic('w24',sizes='(max-width:760px) 100vw, 33vw')}<div class="tx"><small>Gallery</small><h3>30 real jobs</h3><span>See the work {IC["arrow"]}</span></div></a>
+<a class="tzc" href="gallery.html" data-r>{pic('w24',sizes='(max-width:760px) 100vw, 33vw')}<div class="tx"><small>Gallery</small><h3>32 real jobs</h3><span>See the work {IC["arrow"]}</span></div></a>
 <a class="tzc" href="about.html" data-r style="--d:.1s">{pic('w18',sizes='(max-width:760px) 100vw, 33vw')}<div class="tx"><small>About</small><h3>Since 2004</h3><span>Meet Detail Pros {IC["arrow"]}</span></div></a>
 <a class="tzc" href="contact.html" data-r style="--d:.2s">{pic('w14',sizes='(max-width:760px) 100vw, 33vw')}<div class="tx"><small>Book</small><h3>Get a quote</h3><span>Call, text or email {IC["arrow"]}</span></div></a></div></div></section>
 {cta_band()}'''
@@ -249,8 +249,8 @@ def home():
 def services():
     imgs={'auto':['w16','w30','w25'],'boat':['w14','w09','w12'],'rv':['w27','w22','w26'],'moto':['w13','w15','w07']}
     extra={'auto':'Their full-size SUV and sedan packages run from a quick Premium Wax to the clay-bar Ultimate Detail. Ceramic wax is available as an upgrade.',
-           'boat':'Bring the boat home on the trailer or leave it on the lift-side driveway. Boat pricing is quoted by phone.',
-           'rv':'From Super Cs to full-size diesel pushers, the crew brings ladders and gear for tall coaches. RV pricing is quoted by phone.',
+           'boat':'Boats are detailed right on the trailer at your place. Boat pricing is quoted by phone.',
+           'rv':'From Super Cs to full-size luxury coaches, every RV gets the same hands-on care. RV pricing is quoted by phone.',
            'moto':'Chrome, paint and engine cases cleaned and brought back up. Motorcycle pricing is quoted by phone.'}
     secs=''
     for i,s in enumerate(SVCS):
@@ -264,7 +264,7 @@ def services():
            ('We pull up and get to work','The Detail Pros crew arrives with the gear and gets started right there.'),
            ('Walk around and enjoy the shine','Look it over together before we roll out.')]
     tl=''.join(f'<div class="tl-step"><h3>{i+1}. {t}</h3><p>{d}</p></div>' for i,(t,d) in enumerate(steps))
-    body=phero('services.html','Services','Detailing for <span class="cy">everything</span> in the driveway.','Auto, boat, RV and motorcycle detailing, done mobile across the Orlando area. High-speed buffing, three-step paint processes, scratch removal, headlight restoration and steam-cleaned interiors.','w03')+f'''
+    body=phero('services.html','Services','Detailing for the <span class="cy">whole</span> driveway.','Auto, boat, RV and motorcycle detailing, done mobile across the Orlando area. High-speed buffing, three-step paint processes, scratch removal, headlight restoration and steam-cleaned interiors.','w03')+f'''
 <div class="wrap">{secs}</div>
 <section class="sec"><div class="wrap"><div class="ttl"><div><p class="eb">Add-ons</p><h2 class="split-t">Extras, priced up front.</h2></div><p>Add any of these to a package. Prices from their current published menu.</p></div><div class="addons">{adds}</div>
 <p class="pnote">Going green? Ask about eco-friendly options. Detail Pros mentions IGL products, which are soybean-based, and IGL ceramic coatings are quoted on request.</p></div></section>
@@ -317,7 +317,7 @@ def gallery():
     items=''.join(f'<button class="gi" type="button" data-c="{k}" data-full="assets/img/{n}-1600.webp" aria-label="Open photo: {e(PH[n])}">{pic(n,sizes="(max-width:760px) 50vw, 33vw").replace(f"assets/img/{n}-1600.webp\" srcset","assets/img/"+n+"-800.webp\" srcset")}<span class="cap">{e(PH[n])}</span></button>' for n,k in mix)
     fl=''.join(f'<button type="button" data-f="{k}" aria-pressed="{"true" if k=="all" else "false"}">{l}</button>' for k,l in [('all','All'),('auto','Cars & trucks'),('boat','Boats'),('rv','RVs'),('moto','Motorcycles')])
     body=f'''<section class="ph" style="padding-bottom:30px"><div class="hex" aria-hidden="true"></div><div class="wrap" style="grid-template-columns:1fr"><div><ol class="crumbs"><li><a href="index.html">Home</a></li><li aria-current="page">Gallery</li></ol>
-<h1 class="split-t">The <span class="cy">gloss</span> gallery.</h1><p class="lead" data-r>30 finished jobs from Detail Pros’ own photos: daily drivers, exotics, wake boats, diesel pushers and touring bikes. Tap any photo to see it full size.</p></div></div></section>
+<h1 class="split-t">The <span class="cy">gloss</span> gallery.</h1><p class="lead" data-r>32 finished jobs from Detail Pros’ own photos: daily drivers, sports cars, wake boats, luxury motorhomes and touring bikes. Tap any photo to see it full size.</p></div></div></section>
 <section style="padding-bottom:40px"><div class="wrap" data-lbscope><div class="gf" role="group" aria-label="Filter photos">{fl}</div><div class="gal">{items}</div></div></section>
 <div class="glb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer"><figure style="margin:0"><img alt=""><p></p></figure><button class="x" type="button" aria-label="Close">{IC["x"]}</button><button class="pv" type="button" aria-label="Previous photo">{IC["left"]}</button><button class="nx" type="button" aria-label="Next photo">{IC["right"]}</button></div>
 {cta_band('Your ride, next in the gallery.')}'''
@@ -330,7 +330,7 @@ def reviews():
     g=''.join(f'<figure class="rvw-s" data-r style="margin:0 0 16px"><q>{e(t)}</q><figcaption class="rvw-m"><b>{e(n)}</b>{stars(5)}<span>{a}</span>{GSRC}</figcaption></figure>' for n,a,t in GREV)
     o=''.join(f'<figure class="rvw-s" data-r style="margin:0;padding:28px"><q style="font-size:17px">{e(t)}</q><figcaption class="rvw-m"><b>{e(n)}</b>{stars(5)}</figcaption></figure>' for n,t in OREV)
     body=phero('reviews.html','Reviews','People who <span class="cy">love</span> the shine.','Two five-star Google reviews so far, plus the testimonials Detail Pros published on its previous website.','w25',ctas=False)+f'''
-<section class="sec" style="padding-top:20px"><div class="wrap"><div class="ttl"><div><p class="eb">On Google</p><h2 class="split-t">5.0 from 2 Google reviews.</h2></div><p><a class="btn gh" href="{GMAPS}" target="_blank" rel="noopener">{IC["g"]}<span>See them on Google</span></a></p></div>{g}</div></section>
+<section class="sec" style="padding-top:20px"><div class="wrap"><div class="ttl"><div><p class="eb">On Google</p><h2 class="split-t">What Google reviewers say.</h2></div><p><a class="btn gh" href="{GMAPS}" target="_blank" rel="noopener">{IC["g"]}<span>See them on Google</span></a></p></div>{g}</div></section>
 <section class="sec" style="padding-top:0"><div class="wrap"><div class="ttl"><div><p class="eb">From their previous website</p><h2 class="split-t">Earlier testimonials.</h2></div><p>As published on Detail Pros’ previous website (shown there as Google reviews). Shown word for word.</p></div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px">{o}
 <figure class="rvw-s" data-r style="margin:0;padding:28px"><q style="font-size:17px">{e(FBC[2])}</q><figcaption class="rvw-m"><b>{e(FBC[0])}</b><span>{FBC[1]}</span><span class="src">{IC["fb"]}Facebook comment</span></figcaption></figure></div></div></section>
@@ -353,7 +353,7 @@ def about():
 <p>They use premium-quality products and equipment tested for reliability on every kind of vehicle, and offer high-speed buffing and polishing, three-step paint processes, scratch removal and headlight restoration. Plenty of loyal customers book only with them, and new clients keep coming from referrals.</p></div>
 <figure class="polaroid" data-r="zoom">{pic('w28',sizes='(max-width:1000px) 90vw, 45vw')}<figcaption>Right in your driveway</figcaption></figure></div></section>
 <section class="sec" style="padding-top:0"><div class="wrap"><div class="ttl"><div><p class="eb">Why Detail Pros</p><h2 class="split-t">What they promise.</h2></div><p>In their own words, from the “Why choose us” section of their site.</p></div><div class="why">{w}</div></div></section>
-<section class="sec" style="padding-top:0"><div class="wrap split"><div><p class="eb">Service area</p><h2 class="split-t">Four counties, one van.</h2><p class="lead">Serving Orange, Seminole, Lake and Osceola counties. Not sure if you’re in range? Call and ask.</p><ul class="cities">{''.join(f'<li>{c}</li>' for c in CITIES)}</ul>
+<section class="sec" style="padding-top:0"><div class="wrap split"><div><p class="eb">Service area</p><h2 class="split-t">Four counties. We come to you.</h2><p class="lead">Serving Orange, Seminole, Lake and Osceola counties. Not sure if you’re in range? Call and ask.</p><ul class="cities">{''.join(f'<li>{c}</li>' for c in CITIES)}</ul>
 <div class="vanpic" data-r><img src="assets/img/van-1000.webp" width="1000" height="400" alt="The white Detail Pros Orlando mobile detailing van" loading="lazy"></div></div>
 <div data-r="zoom"><div class="radar" role="img" aria-label="Stylized service area graphic showing Orange, Seminole, Lake and Osceola counties around Orlando"><span class="rg" style="--i:12%"></span><span class="rg" style="--i:25%"></span><span class="rg" style="--i:38%"></span><span class="sw"></span><span class="ctr"></span>{rc}</div><p class="radar-cap">Stylized graphic, not to scale.</p></div></div></section>
 {cta_band()}'''
