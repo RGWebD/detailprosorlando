@@ -55,7 +55,9 @@ $$('canvas.beads').forEach(cv=>{const ctx=cv.getContext('2d');let W,H,B=[],vis=t
  if(RM){draw();return}
  new IntersectionObserver(es=>{vis=es[0].isIntersecting;cancelAnimationFrame(raf);if(vis)loop()}).observe(cv)});
 /* hotspots */
-const fitHs=()=>$$('.hs').forEach(h=>{h.classList.remove('rev');const l=$('.lbl',h),r=l.getBoundingClientRect();const box=(h.closest('.hero-ph')||d.body).getBoundingClientRect();if(r.right>Math.min(innerWidth,box.right)-8)h.classList.add('rev')});
+const fitHs=()=>$$('.hs').forEach(h=>{h.classList.remove('rev','dn','up');h.style.removeProperty('--sx');const l=$('.lbl',h);const box=(h.closest('.hero-ph')||d.body).getBoundingClientRect();const R=Math.min(innerWidth,box.right)-8,L=Math.max(0,box.left)+8;
+ let r=l.getBoundingClientRect();if(r.right<=R)return;h.classList.add('rev');r=l.getBoundingClientRect();if(r.left>=L)return;
+ h.classList.remove('rev');h.classList.add('dn');const hb=h.getBoundingClientRect();if(hb.top-box.top>box.height/2)h.classList.add('up');r=l.getBoundingClientRect();let sx=0;if(r.left<L)sx=L-r.left;else if(r.right>R)sx=R-r.right;h.style.setProperty('--sx',sx+'px')});
 $$('.hs').forEach(h=>{const b=$('button',h);b.addEventListener('click',()=>{const on=!h.classList.contains('on');$$('.hs').forEach(x=>{x.classList.remove('on');$('button',x).setAttribute('aria-expanded','false')});h.classList.toggle('on',on);b.setAttribute('aria-expanded',on)})});
 addEventListener('load',fitHs);addEventListener('resize',fitHs);fitHs();
 /* ride switcher */

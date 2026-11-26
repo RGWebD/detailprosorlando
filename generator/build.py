@@ -248,7 +248,7 @@ def home():
 # =============== SERVICES ===============
 def services():
     imgs={'auto':['w16','w30','w25'],'boat':['w14','w09','w12'],'rv':['w27','w22','w26'],'moto':['w13','w15','w07']}
-    extra={'auto':'Their full-size SUV and sedan packages run from a quick Premium Wax to the clay-bar Ultimate Detail. Ceramic wax is available as an upgrade.',
+    extra={'auto':'Packages run from the quick Premium Wax to the clay-bar Ultimate Detail, priced by vehicle size. Ceramic wax is available as an upgrade.',
            'boat':'Boats are detailed right on the trailer at your place. Boat pricing is quoted by phone.',
            'rv':'From Super Cs to full-size luxury coaches, every RV gets the same hands-on care. RV pricing is quoted by phone.',
            'moto':'Chrome, paint and engine cases cleaned and brought back up. Motorcycle pricing is quoted by phone.'}

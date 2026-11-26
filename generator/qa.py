@@ -63,6 +63,13 @@ async def main():
                     if n=='index' and rm=='no-preference':
                         await pg.click('#t-boat'); await pg.wait_for_timeout(400)
                         if await pg.evaluate("document.getElementById('p-boat').hidden"): F(f'{tag} ride tab')
+                        await pg.evaluate('scrollTo(0,0)'); await pg.wait_for_timeout(300)
+                        try:
+                            await pg.click('.hs button >> nth=0',timeout=4000); await pg.wait_for_timeout(300)
+                            if not await pg.evaluate("document.querySelector('.hs').classList.contains('on')"): F(f'{tag} hotspot not toggling')
+                            lb=await pg.evaluate("(()=>{const r=document.querySelector('.hs.on .lbl').getBoundingClientRect();return [r.left,r.right]})()")
+                            if lb[0]<0 or lb[1]>w: F(f'{tag} hotspot label off-screen {lb}')
+                        except Exception as ex: F(f'{tag} hotspot click blocked {str(ex)[:80]}')
                     if n=='gallery' and rm=='no-preference':
                         await pg.click('.gi >> nth=2'); await pg.wait_for_timeout(500)
                         ok=await pg.evaluate("(()=>{const i=document.querySelector('.glb img');return !document.querySelector('.glb').hidden&&i.complete&&i.naturalWidth>0})()")
